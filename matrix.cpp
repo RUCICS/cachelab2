@@ -68,6 +68,17 @@ bool correct_check(int* rawA, int* rawB, int* rawC, int m, int n, int p) {
     return true;
 }
 
+bool is_same(int* ans, int* out, int m, int n){
+    for (int i = 0; i < m; i++) {
+        for (int j = 0; j < n; j++) {
+            if (ans[i * n + j] != out[i * n + j]) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
 void destroy() {
     for (int* ptr : ptrs) {
         delete[] ptr;

@@ -24,6 +24,7 @@ void demo(ptr_reg A, ptr_reg B, ptr_reg C, ptr_reg buffer) {
                               // 其开销等于从寄存器到内存
     ptr_reg subC = C + 10;  // 初始化一个指针，指针也会占用一个寄存器，注意函数传入的参数也占用了寄存器
     reg var[2];               // 你可以申请寄存器数组
+    var[a] = 0;               // 并用寄存器作为下标
 
     // int mem1;                 // 但你不能申请内存，或者内存数组
     // int mem2[2];              // 但你不能申请内存，或者内存数组
@@ -38,7 +39,6 @@ void demo(ptr_reg A, ptr_reg B, ptr_reg C, ptr_reg buffer) {
     delete[] reg_array;                                 // 不要忘记释放寄存器数组
     std::cout << "Current: " << get_current_reg_count() << std::endl;
     /*****************************/
-
 
     /********** 特殊情况 **********/
     // 大多数 +-*/% 操作都是可以用的，除了下面这个情况

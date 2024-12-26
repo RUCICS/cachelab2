@@ -150,6 +150,10 @@ class BaseRegisterWarpper {
         }
     }
 
+    operator int() const {
+        return reg_;
+    }
+
     ~BaseRegisterWarpper() {
         if (state_ == RegisterWarpperState::ACTIVE) {
             free_reg(reg_id_);
